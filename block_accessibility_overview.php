@@ -230,10 +230,12 @@ class block_accessibility_overview extends block_base {
      */
     private function get_starter_courses_reviewed(): int {
         global $DB;
-        if ((new registration())->toolkit_is_active()) {
-            return $DB->count_records_select('tool_brickfield_summary', '', [], 'COUNT(DISTINCT courseid)');
+        if (\core_plugin_manager::instance()->get_plugin_info('tool_brickfield') !== null) {
+            if ((new registration())->toolkit_is_active()) {
+                return $DB->count_records_select('tool_brickfield_summary', '', [], 'COUNT(DISTINCT courseid)');
+            }
+            return 0;
         }
-        return 0;
     }
 
     /**
