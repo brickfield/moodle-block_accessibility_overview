@@ -197,11 +197,17 @@ class block_accessibility_overview extends block_base {
             return get_string('notinstalled', 'block_accessibility_overview');
         }
         if (!starter::is_accessibility_enabled()) {
+            if (!has_capability('moodle/site:config', context_system::instance())) {
+                return get_string('disabled', 'block_accessibility_overview');
+            }
             $disabledlink = new \moodle_url('admin/settings.php?section=optionalsubsystems');
             return html_writer::link($disabledlink, get_string('disabled', 'block_accessibility_overview'));
         }
         if ((new registration())->toolkit_is_active()) {
             return get_string('registered', 'block_accessibility_overview');
+        }
+        if (!has_capability('moodle/site:config', context_system::instance())) {
+            return get_string('unregistered', 'block_accessibility_overview');
         }
         $registerurl = new \moodle_url('/admin/tool/brickfield/registration.php');
         return html_writer::link($registerurl, get_string('unregistered', 'block_accessibility_overview'));
@@ -218,6 +224,9 @@ class block_accessibility_overview extends block_base {
         }
         if ((\core_plugin_manager::instance()->get_plugin_info('block_accessreview'))->is_enabled()) {
             return get_string('enabled', 'block_accessibility_overview');
+        }
+        if (!has_capability('moodle/site:config', context_system::instance())) {
+            return get_string('disabled', 'block_accessibility_overview');
         }
         $disabledurl = new \moodle_url('admin/blocks.php');
         return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
@@ -248,11 +257,17 @@ class block_accessibility_overview extends block_base {
             return get_string('notinstalled', 'block_accessibility_overview');
         }
         if (!enterprise::is_accessibility_enabled()) {
+            if (!has_capability('moodle/site:config', context_system::instance())) {
+                return get_string('disabled', 'block_accessibility_overview');
+            }
             $disabledurl = new \moodle_url('admin/settings.php?section=optionalsubsystems');
             return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
         }
         if (brickfieldconnect::site_is_registered()) {
             return get_string('registered', 'block_accessibility_overview');
+        }
+        if (!has_capability('moodle/site:config', context_system::instance())) {
+            return get_string('unregistered', 'block_accessibility_overview');
         }
         $registerurl = new \moodle_url('/admin/tool/bfplus/registration.php');
         return html_writer::link($registerurl, get_string('unregistered', 'block_accessibility_overview'));
@@ -269,6 +284,9 @@ class block_accessibility_overview extends block_base {
         }
         if ((\core_plugin_manager::instance()->get_plugin_info('block_bfmanager'))->is_enabled()) {
             return get_string('enabled', 'block_accessibility_overview');
+        }
+        if (!has_capability('moodle/site:config', context_system::instance())) {
+            return get_string('disabled', 'block_accessibility_overview');
         }
         $disabledurl = new \moodle_url('admin/blocks.php');
         return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
