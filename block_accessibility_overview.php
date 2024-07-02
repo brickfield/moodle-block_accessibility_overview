@@ -20,6 +20,8 @@ use tool_bfplus\accessibility as enterprise;
 use tool_bfplus\brickfieldconnect;
 use tool_bfplus\sitedata;
 use tool_bfplus\authorizer;
+use local_bfaltformat\authorizer as afauthorizer;
+use local_bfaltformat\sensusaccess;
 
 /**
  * Definition of the accessibility_overview block.
@@ -126,6 +128,7 @@ class block_accessibility_overview extends block_base {
         // Add the enterprise section.
         $enterprisetoolkit = get_string('enterprisetoolkit', 'block_accessibility_overview');
         $reviewplusblock = get_string('reviewplusblock', 'block_accessibility_overview');
+        $altformat = get_string('altformat', 'block_accessibility_overview');
         $enterprisedocs = get_string('enterprisedocs', 'block_accessibility_overview');
         $enterpriseinfo = get_string('enterpriseinfo', 'block_accessibility_overview');
 
@@ -134,6 +137,7 @@ class block_accessibility_overview extends block_base {
             'entries' => [
                 $this->get_entry($enterprisetoolkit, $this->get_enterprise_status()),
                 $this->get_entry($reviewplusblock, $this->get_manager_status()),
+                $this->get_entry($altformat, $this->get_altformat_status()),
                 $this->get_entry($coursesreviewed, $this->get_enterprise_courses_reviewed()),
                 $this->get_entry(html_writer::link(self::ENTERPRISE_DOCS_URL, $enterprisedocs)),
                 $this->get_entry(html_writer::link(self::ENTERPRISE_INFO_URL, $enterpriseinfo)),
@@ -290,6 +294,40 @@ class block_accessibility_overview extends block_base {
         }
         $disabledurl = new \moodle_url('admin/blocks.php');
         return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
+    }
+
+    /**
+     * Get bfaltformat status.
+     *
+     * @return string
+     */
+    private function get_altformat_status(): string {
+        if (\core_plugin_manager::instance()->get_plugin_info('local_bfaltformat') === null) {
+            return get_string('notinstalled', 'block_accessibility_overview');
+        }
+        if (!afauthorizer::setting_enabled()) {
+            if (!has_capability('moodle/site:config', context_system::instance())) {
+                return get_string('disabled', 'block_accessibility_overview');
+            }
+            $disabledurl = new \moodle_url('admin/settings.php?section=optionalsubsystems');
+            return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
+        }
+        // Ensure toolkit is also registered.
+        if (!brickfieldconnect::site_is_registered()) {
+            if (!has_capability('moodle/site:config', context_system::instance())) {
+                return get_string('toolkitunregistered', 'block_accessibility_overview');
+            }
+            $registerurl = new \moodle_url('/admin/tool/bfplus/registration.php');
+            return html_writer::link($registerurl, get_string('toolkitunregistered', 'block_accessibility_overview'));
+        }
+        if (sensusaccess::validated()) {
+            return get_string('registered', 'block_accessibility_overview');
+        }
+        if (!has_capability('moodle/site:config', context_system::instance())) {
+            return get_string('unregistered', 'block_accessibility_overview');
+        }
+        $registerurl = new \moodle_url('admin/settings.php?section=bfaltformat');
+        return html_writer::link($registerurl, get_string('unregistered', 'block_accessibility_overview'));
     }
 
     /**

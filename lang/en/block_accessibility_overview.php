@@ -53,6 +53,7 @@ $string['enabled'] = 'Enabled';
 $string['notinstalled'] = 'Not Installed';
 $string['registered'] = 'Registered';
 $string['unregistered'] = 'Unregistered';
+$string['toolkitunregistered'] = 'Toolkit unregistered';
 
 // Block link text.
 $string['bookmeeting'] = 'Book a meeting';
