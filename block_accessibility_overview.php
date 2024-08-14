@@ -204,7 +204,7 @@ class block_accessibility_overview extends block_base {
             if (!has_capability('moodle/site:config', context_system::instance())) {
                 return get_string('disabled', 'block_accessibility_overview');
             }
-            $disabledlink = new \moodle_url('admin/settings.php?section=optionalsubsystems');
+            $disabledlink = new \moodle_url('/admin/settings.php?section=optionalsubsystems');
             return html_writer::link($disabledlink, get_string('disabled', 'block_accessibility_overview'));
         }
         if ((new registration())->toolkit_is_active()) {
@@ -232,7 +232,7 @@ class block_accessibility_overview extends block_base {
         if (!has_capability('moodle/site:config', context_system::instance())) {
             return get_string('disabled', 'block_accessibility_overview');
         }
-        $disabledurl = new \moodle_url('admin/blocks.php');
+        $disabledurl = new \moodle_url('/admin/blocks.php');
         return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
     }
 
@@ -264,7 +264,7 @@ class block_accessibility_overview extends block_base {
             if (!has_capability('moodle/site:config', context_system::instance())) {
                 return get_string('disabled', 'block_accessibility_overview');
             }
-            $disabledurl = new \moodle_url('admin/settings.php?section=optionalsubsystems');
+            $disabledurl = new \moodle_url('/admin/settings.php?section=optionalsubsystems');
             return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
         }
         if (brickfieldconnect::site_is_registered()) {
@@ -292,7 +292,7 @@ class block_accessibility_overview extends block_base {
         if (!has_capability('moodle/site:config', context_system::instance())) {
             return get_string('disabled', 'block_accessibility_overview');
         }
-        $disabledurl = new \moodle_url('admin/blocks.php');
+        $disabledurl = new \moodle_url('/admin/blocks.php');
         return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
     }
 
@@ -309,7 +309,7 @@ class block_accessibility_overview extends block_base {
             if (!has_capability('moodle/site:config', context_system::instance())) {
                 return get_string('disabled', 'block_accessibility_overview');
             }
-            $disabledurl = new \moodle_url('admin/settings.php?section=optionalsubsystems');
+            $disabledurl = new \moodle_url('/admin/settings.php?section=optionalsubsystems');
             return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
         }
         // Ensure toolkit is also registered.
@@ -326,7 +326,7 @@ class block_accessibility_overview extends block_base {
         if (!has_capability('moodle/site:config', context_system::instance())) {
             return get_string('unregistered', 'block_accessibility_overview');
         }
-        $registerurl = new \moodle_url('admin/settings.php?section=bfaltformat');
+        $registerurl = new \moodle_url('/admin/settings.php?section=bfaltformat');
         return html_writer::link($registerurl, get_string('unregistered', 'block_accessibility_overview'));
     }
 
