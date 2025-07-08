@@ -16,10 +16,10 @@
 
 use tool_brickfield\accessibility as starter;
 use tool_brickfield\registration;
-use tool_bfplus\accessibility as enterprise;
-use tool_bfplus\brickfieldconnect;
-use tool_bfplus\sitedata;
-use tool_bfplus\authorizer;
+use tool_bfplus\local\contentprovider\accessibility as enterprise;
+use tool_bfplus\local\authorization\brickfieldconnect;
+use tool_bfplus\local\logging\sitedata;
+use tool_bfplus\local\authorization\authorizer;
 use local_bfaltformat\authorizer as afauthorizer;
 use local_bfaltformat\sensusaccess;
 
