@@ -1,10 +1,10 @@
 # Brickfield Accessibility Overview #
-Copyright (C) 2024 [Brickfield Education Labs](https://www.brickfield.ie/)
+Copyright (C) 2024 Onward [Brickfield Education Labs](https://www.brickfield.ie/)
 
 ## What is the Accessibility Overview? ##
-The purpose of the Accessibility Overview Block is to provide a concise overview of the Moodle site's accessibility features and their statuses.
+The purpose of the Accessibility Overview Block is to provide a concise overview of the Moodle site's accessibility features.
 
-What is included in the block are the useful summary points of the Brickfield Accessibility Toolkit and other accessibility offerings as a concise listing, with go-to links.
+Included in the block are useful summary points of the Brickfield Accessibility Toolkit and other accessibility offerings as a concise listing, with go-to links.
 
 It is intended to be used by Moodle site administrators, managers, teachers/lecturers, learning technologists, and DEI facilitators.
 
@@ -17,7 +17,7 @@ On the Accessibility Overview, admins, managers, and teachers can:
 * View the Brickfield services summary details.
 
 ## Version support ##
-This plugin has been developed to work on Moodle releases 4.1, 4.2, 4.3, & 4.4.
+This plugin has been developed to work on Moodle releases 4.1, 4.2, 4.3, 4.4, and 4.5.
 
 ## Development ##
 This plugin is ideated, scoped, developed, and maintained by Brickfield Education Labs.
