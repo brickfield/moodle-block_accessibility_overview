@@ -208,6 +208,9 @@ class block_accessibility_overview extends block_base {
             return html_writer::link($disabledlink, get_string('disabled', 'block_accessibility_overview'));
         }
         if ((new registration())->toolkit_is_active()) {
+            if ((new registration())->validation_pending()) {
+                return get_string('pending', 'block_accessibility_overview');
+            }
             return get_string('registered', 'block_accessibility_overview');
         }
         if (!has_capability('moodle/site:config', context_system::instance())) {
