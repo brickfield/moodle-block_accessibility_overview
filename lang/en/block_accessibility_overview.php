@@ -51,6 +51,7 @@ $string['training'] = 'Training overview';
 $string['disabled'] = 'Disabled';
 $string['enabled'] = 'Enabled';
 $string['notinstalled'] = 'Not Installed';
+$string['pending'] = 'Pending';
 $string['registered'] = 'Registered';
 $string['unregistered'] = 'Unregistered';
 $string['toolkitunregistered'] = 'Toolkit unregistered';
