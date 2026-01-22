@@ -18,7 +18,7 @@ use tool_brickfield\accessibility as starter;
 use tool_brickfield\registration;
 use tool_bfplus\local\contentprovider\accessibility as enterprise;
 use tool_bfplus\local\authorization\brickfieldconnect;
-use tool_bfplus\local\logging\sitedata;
+use tool_bfplus\local\contentprovider\coursedata;
 use tool_bfplus\local\authorization\authorizer;
 use local_bfaltformat\authorizer as afauthorizer;
 use local_bfaltformat\sensusaccess;
@@ -93,7 +93,7 @@ class block_accessibility_overview extends block_base {
      * @param string $value
      * @return array
      */
-    private function get_entry(string $label, string $value = null): array {
+    private function get_entry(string $label, ?string $value = null): array {
         return [
             'label' => $label,
             'value' => $value,
@@ -341,7 +341,7 @@ class block_accessibility_overview extends block_base {
     private function get_enterprise_courses_reviewed(): int {
         if (\core_plugin_manager::instance()->get_plugin_info('tool_bfplus') !== null) {
             if (authorizer::is_authorized()) {
-                return sitedata::get_total_courses_checked();
+                return coursedata::get_total_courses_checked();
             }
         }
         return 0;
