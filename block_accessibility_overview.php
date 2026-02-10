@@ -20,6 +20,7 @@ use tool_bfplus\local\contentprovider\accessibility as enterprise;
 use tool_bfplus\local\authorization\brickfieldconnect;
 use tool_bfplus\local\contentprovider\coursedata;
 use tool_bfplus\local\authorization\authorizer;
+use tool_bfplus\sitedata;
 use local_bfaltformat\authorizer as afauthorizer;
 use local_bfaltformat\sensusaccess;
 
@@ -339,9 +340,14 @@ class block_accessibility_overview extends block_base {
      * @return int
      */
     private function get_enterprise_courses_reviewed(): int {
-        if (\core_plugin_manager::instance()->get_plugin_info('tool_bfplus') !== null) {
+        $plugin = \core_plugin_manager::instance()->get_plugin_info('tool_bfplus');
+        if ($plugin !== null) {
             if (authorizer::is_authorized()) {
-                return coursedata::get_total_courses_checked();
+                if ($plugin->versiondisk >= 2025081100) {
+                    return coursedata::get_total_courses_checked();
+                } else {
+                    return sitedata::get_total_courses_checked();
+                }
             }
         }
         return 0;
