@@ -16,12 +16,7 @@
 
 use tool_brickfield\accessibility as starter;
 use tool_brickfield\registration;
-use tool_bfplus\local\contentprovider\accessibility as enterprise;
-use tool_bfplus\local\authorization\brickfieldconnect;
-use tool_bfplus\local\logging\sitedata;
-use tool_bfplus\local\authorization\authorizer;
-use local_bfaltformat\authorizer as afauthorizer;
-use local_bfaltformat\sensusaccess;
+use block_accessibility_overview\versionshim;
 
 /**
  * Definition of the accessibility_overview block.
@@ -93,7 +88,7 @@ class block_accessibility_overview extends block_base {
      * @param string $value
      * @return array
      */
-    private function get_entry(string $label, string $value = null): array {
+    private function get_entry(string $label, ?string $value = null): array {
         return [
             'label' => $label,
             'value' => $value,
@@ -260,17 +255,17 @@ class block_accessibility_overview extends block_base {
      * @return string
      */
     private function get_enterprise_status(): string {
-        if (\core_plugin_manager::instance()->get_plugin_info('tool_bfplus') === null) {
+        if (versionshim::bfplus_is_installed() != true) {
             return get_string('notinstalled', 'block_accessibility_overview');
         }
-        if (!enterprise::is_accessibility_enabled()) {
+        if (!versionshim::bfplus_is_accessibility_enabled()) {
             if (!has_capability('moodle/site:config', context_system::instance())) {
                 return get_string('disabled', 'block_accessibility_overview');
             }
             $disabledurl = new \moodle_url('/admin/settings.php?section=optionalsubsystems');
             return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
         }
-        if (brickfieldconnect::site_is_registered()) {
+        if (versionshim::bfplus_site_is_registered()) {
             return get_string('registered', 'block_accessibility_overview');
         }
         if (!has_capability('moodle/site:config', context_system::instance())) {
@@ -305,10 +300,10 @@ class block_accessibility_overview extends block_base {
      * @return string
      */
     private function get_altformat_status(): string {
-        if (\core_plugin_manager::instance()->get_plugin_info('local_bfaltformat') === null) {
+        if (versionshim::bfaltformat_is_installed() != true) {
             return get_string('notinstalled', 'block_accessibility_overview');
         }
-        if (!afauthorizer::setting_enabled()) {
+        if (!versionshim::bfaltformat_setting_enabled()) {
             if (!has_capability('moodle/site:config', context_system::instance())) {
                 return get_string('disabled', 'block_accessibility_overview');
             }
@@ -316,14 +311,14 @@ class block_accessibility_overview extends block_base {
             return html_writer::link($disabledurl, get_string('disabled', 'block_accessibility_overview'));
         }
         // Ensure toolkit is also registered.
-        if (!brickfieldconnect::site_is_registered()) {
+        if (!versionshim::bfplus_site_is_registered()) {
             if (!has_capability('moodle/site:config', context_system::instance())) {
                 return get_string('toolkitunregistered', 'block_accessibility_overview');
             }
             $registerurl = new \moodle_url('/admin/tool/bfplus/registration.php');
             return html_writer::link($registerurl, get_string('toolkitunregistered', 'block_accessibility_overview'));
         }
-        if (sensusaccess::validated()) {
+        if (versionshim::bfaltformat_sensusaccess_validated()) {
             return get_string('registered', 'block_accessibility_overview');
         }
         if (!has_capability('moodle/site:config', context_system::instance())) {
@@ -339,10 +334,8 @@ class block_accessibility_overview extends block_base {
      * @return int
      */
     private function get_enterprise_courses_reviewed(): int {
-        if (\core_plugin_manager::instance()->get_plugin_info('tool_bfplus') !== null) {
-            if (authorizer::is_authorized()) {
-                return sitedata::get_total_courses_checked();
-            }
+        if (versionshim::bfplus_is_installed() && versionshim::bfplus_is_authorized()) {
+            return versionshim::bfplus_get_total_courses_checked();
         }
         return 0;
     }

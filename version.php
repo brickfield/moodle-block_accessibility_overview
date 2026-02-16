@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_accessibility_overview';
-$plugin->release = '1.0';
-$plugin->version = 2023041701;
-$plugin->requires  = 2022112800; // Moodle 4.1 and higher.
+$plugin->release = '1.1';
+$plugin->version = 2023041702;
+$plugin->requires  = 2024100700; // Moodle 4.5 and higher.
 $plugin->maturity = MATURITY_STABLE;
