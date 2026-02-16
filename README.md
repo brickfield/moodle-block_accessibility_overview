@@ -17,18 +17,17 @@ On the Accessibility Overview, admins, managers, and teachers can:
 * View the Brickfield services summary details.
 
 ## Version support ##
-This plugin has been developed to work on Moodle releases 4.1, 4.2, 4.3, 4.4, and 4.5.
+This plugin has been developed to work on Moodle releases 4.5, 5.0, and 5.1.
 
 ## Development ##
 This plugin is ideated, scoped, developed, and maintained by Brickfield Education Labs.
-If you wish to contribute funding to the ongoing development of features and / or maintenance of the plugin - please contact [support@brickfield.ie](mailto:support@brickfield.ie).
 
 ## Documentation ##
 All public documentation for this plugin will be maintained at the [Accessibility Overview README file](https://github.com/brickfield/moodle-block_accessibility_overview/blob/main/README.md).
 
 ## Important Links ##
-* [Code repository](https://github.com/brickfield/moodle-gradereport_rubrics)
-* [Plugin Directory](https://moodle.org/plugins/gradereport_rubrics)
+* [Code repository](https://github.com/brickfield/moodle-block_accessibility_overview)
+* [Plugin Directory](https://moodle.org/plugins/block_accessibility_overview)
 
 ## Installation ##
 * Unzip and copy the "accessibility_overview" folder into your Moodle's "blocks/" folder
