@@ -85,7 +85,7 @@ class block_accessibility_overview extends block_base {
      * Helper function to create an entry array element.
      *
      * @param string $label
-     * @param string $value
+     * @param string|null $value
      * @return array
      */
     private function get_entry(string $label, ?string $value = null): array {
