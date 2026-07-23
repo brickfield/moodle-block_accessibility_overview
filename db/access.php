@@ -19,7 +19,7 @@
  *
  * @package     block_accessibility_overview
  * @author      Michael Pound (michael@brickfieldlabs.ie)
- * @copyright   2024 Brickfield Education Labs, www.brickfield.ie
+ * @copyright   2026 onward Brickfield Education Labs Ltd, https://www.brickfield.ie
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

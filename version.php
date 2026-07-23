@@ -19,14 +19,14 @@
  *
  * @package     block_accessibility_overview
  * @author      Michael Pound (michael@brickfieldlabs.ie)
- * @copyright   2024 Brickfield Education Labs, www.brickfield.ie
+ * @copyright   2026 onward Brickfield Education Labs Ltd, https://www.brickfield.ie
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_accessibility_overview';
-$plugin->release = '1.1';
-$plugin->version = 2023041702;
+$plugin->release = '1.2';
+$plugin->version = 2023041703;
 $plugin->requires  = 2024100700; // Moodle 4.5 and higher.
 $plugin->maturity = MATURITY_STABLE;

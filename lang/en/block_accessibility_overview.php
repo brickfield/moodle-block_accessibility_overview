@@ -19,54 +19,42 @@
  *
  * @package     block_accessibility_overview
  * @author      Michael Pound (michael@brickfieldlabs.ie)
- * @copyright   2024 Brickfield Education Labs, www.brickfield.ie
+ * @copyright   2026 onward Brickfield Education Labs Ltd, https://www.brickfield.ie
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Accessibility Overview';
-
 $string['accessibility_overview:addinstance'] = 'Add an Accessibility Overview block';
 $string['accessibility_overview:view'] = 'View the Accessibility Overview block';
-$string['privacy:nullproviderreason'] = 'The Brickfield Accessibility Overview plugin does not store any personal data.';
-
-// Block text.
 $string['altformat'] = 'Content conversion';
+$string['bookmeeting'] = 'Book a meeting';
 $string['brickfieldenterprise'] = 'Brickfield Enterprise';
 $string['brickfieldservices'] = 'Brickfield services';
 $string['brickfieldstarter'] = 'Brickfield starter';
+$string['coursecurriculum'] = 'Course curriculum';
 $string['coursesreviewed'] = 'Courses reviewed';
-$string['contactinfo'] = 'Brickfield contact';
 $string['demo'] = 'Demo';
-$string['enterprisetoolkit'] = 'Accessibillity+ toolkit';
-$string['newsletter'] = 'Newsletter';
-$string['reviewblock'] = 'Review block';
-$string['reviewplusblock'] = 'Review+ block';
-$string['startertoolkit'] = 'Accessibility Toolkit';
-$string['status'] = 'Current status';
-$string['training'] = 'Training overview';
-
-// Block statuses.
 $string['disabled'] = 'Disabled';
 $string['enabled'] = 'Enabled';
-$string['notinstalled'] = 'Not Installed';
-$string['pending'] = 'Pending';
-$string['registered'] = 'Registered';
-$string['unregistered'] = 'Unregistered';
-$string['toolkitunregistered'] = 'Toolkit unregistered';
-
-// Block link text.
-$string['bookmeeting'] = 'Book a meeting';
-$string['contactform'] = 'Contact form';
-$string['coursecurriculum'] = 'Course curriculum';
 $string['enterprisedocs'] = 'Enterprise documentation';
 $string['enterpriseinfo'] = 'Enterprise Toolkit information';
-$string['lettersignup'] = 'Newsletter signup';
-$string['starterdocs'] = 'Starter documentation';
-
-// Socials
+$string['enterprisetoolkit'] = 'Accessibillity+ toolkit';
 $string['facebook'] = 'Facebook';
 $string['instagram'] = 'Instagram';
+$string['lettersignup'] = 'Newsletter signup';
 $string['linkedin'] = 'Linkedin';
+$string['newsletter'] = 'Newsletter';
+$string['notinstalled'] = 'Not Installed';
+$string['pending'] = 'Pending';
+$string['pluginname'] = 'Accessibility Overview';
+$string['privacy:nullproviderreason'] = 'The Brickfield Accessibility Overview plugin does not store any personal data.';
+$string['registered'] = 'Registered';
+$string['reviewblock'] = 'Review block';
+$string['reviewplusblock'] = 'Review+ block';
+$string['starterdocs'] = 'Starter documentation';
+$string['startertoolkit'] = 'Accessibility Toolkit';
+$string['toolkitunregistered'] = 'Toolkit unregistered';
+$string['training'] = 'Training overview';
 $string['twitter'] = 'Twitter';
+$string['unregistered'] = 'Unregistered';
