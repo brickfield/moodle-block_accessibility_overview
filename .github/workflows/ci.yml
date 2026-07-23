@@ -8,13 +8,18 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php: '8.3'
-            moodle-branch: 'MOODLE_404_STABLE'
+          - php: '8.1'
+            moodle-branch: 'MOODLE_405_STABLE'
             database: 'mariadb'
-          - php: '7.4'
-            moodle-branch: 'MOODLE_401_STABLE'
+          - php: '8.2'
+            moodle-branch: 'MOODLE_500_STABLE'
             database: 'pgsql'
-            node: '14.15.0'
+          - php: '8.3'
+            moodle-branch: 'MOODLE_501_STABLE'
+            database: 'mariadb'
+          - php: '8.4'
+            moodle-branch: 'MOODLE_501_STABLE'
+            database: 'pgsql'
 
     services:
       postgres:
@@ -31,7 +36,7 @@ jobs:
           - 5432:5432
 
       mariadb:
-        image: mariadb:10
+        image: mariadb:10.11
         env:
           MYSQL_USER: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: "true"
@@ -41,14 +46,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: plugin
-
-      - name: Install node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -65,6 +65,7 @@ jobs:
           echo $(cd ci/vendor/bin; pwd) >> $GITHUB_PATH
           # PHPUnit depends on en_AU.UTF-8 locale
           sudo locale-gen en_AU.UTF-8
+
       - name: Install Moodle
         run: moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1
         env:

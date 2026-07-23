@@ -23,7 +23,7 @@ use block_accessibility_overview\versionshim;
  *
  * @package     block_accessibility_overview
  * @author      Michael Pound (michael@brickfieldlabs.ie)
- * @copyright   2024 Brickfield Education Labs, www.brickfield.ie
+ * @copyright   2026 onward Brickfield Education Labs Ltd, https://www.brickfield.ie
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_accessibility_overview extends block_base {
@@ -75,7 +75,7 @@ class block_accessibility_overview extends block_base {
         if (!isloggedin() || isguestuser() || !has_capability('block/accessibility_overview:view', $context)) {
             return null;
         }
-        $this->content = new stdClass;
+        $this->content = new stdClass();
         $this->content->text = $OUTPUT->render_from_template('block_accessibility_overview/block_content', $this->get_data());
 
         return $this->content;
@@ -84,8 +84,8 @@ class block_accessibility_overview extends block_base {
     /**
      * Helper function to create an entry array element.
      *
-     * @param string $label
-     * @param string $value
+     * @param string $label Display label for this entry.
+     * @param string|null $value Display value for this entry, or null if there is none.
      * @return array
      */
     private function get_entry(string $label, ?string $value = null): array {
@@ -97,7 +97,7 @@ class block_accessibility_overview extends block_base {
     }
 
     /**
-     * Get the data.
+     * Builds the section and social-link data structures used to render the block content.
      *
      * @return array
      */
@@ -247,6 +247,7 @@ class block_accessibility_overview extends block_base {
             }
             return 0;
         }
+        return 0;
     }
 
     /**

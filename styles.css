@@ -14,7 +14,7 @@
     padding-bottom: 8px;
 }
 
-.block_accessibility_overview_tab h6 {
+.block_accessibility_overview_tab h4 {
     margin: 0;
 }
 
@@ -32,12 +32,18 @@
     background: rgb(0, 0, 0, 0.03);
 }
 
-.block_accessibility_overview_entry div {
-    text-transform: capitalize;
-    width: 40%;
+.block_accessibility_overview_entries {
+    margin: 0;
 }
 
-.block_accessibility_overview_entry div:first-child {
+.block_accessibility_overview_entry dt,
+.block_accessibility_overview_entry dd {
+    text-transform: capitalize;
+    width: 40%;
+    margin: 0;
+}
+
+.block_accessibility_overview_entry dt {
     width: 60%;
 }
 

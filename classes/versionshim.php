@@ -20,7 +20,7 @@ namespace block_accessibility_overview;
  * Version shim class to run functions from either rel1 or rel2 depending on installed version.
  *
  * @package    block_accessibility_overview
- * @copyright  2026 Brickfield Education Labs, www.brickfield.ie
+ * @copyright  2026 onward Brickfield Education Labs Ltd, https://www.brickfield.ie
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class versionshim {
@@ -46,7 +46,7 @@ class versionshim {
     /**
      * Version-aware wrapper for brickfieldconnect::site_is_registered().
      *
-     * @return bool Return of brickfieldconnect::site_is_registered()
+     * @return bool True if this site is registered with the Enterprise toolkit.
      */
     public static function bfplus_site_is_registered(): bool {
         if (static::bfplus_is_installed() != true) {
@@ -65,7 +65,7 @@ class versionshim {
     /**
      * Version-aware wrapper for accessibility::is_accessibility_enabled().
      *
-     * @return bool Return of accessibility::is_accessibility_enabled()
+     * @return bool True if the Enterprise toolkit's accessibility checking is enabled.
      */
     public static function bfplus_is_accessibility_enabled(): bool {
         if (static::bfplus_is_installed() != true) {
@@ -80,9 +80,9 @@ class versionshim {
     }
 
     /**
-     * Version-aware wrapper for {sitedata|coursedata}::is_accessibility_enabled().
+     * Version-aware wrapper for {sitedata|coursedata}::get_total_courses_checked().
      *
-     * @return bool Return of {sitedata|coursedata}::is_accessibility_enabled()
+     * @return int Total number of courses checked by the Enterprise toolkit.
      */
     public static function bfplus_get_total_courses_checked(): int {
         if (static::bfplus_is_installed() != true) {
@@ -99,7 +99,7 @@ class versionshim {
     /**
      * Version-aware wrapper for authorizer::is_authorized().
      *
-     * @return bool Return of authorizer::is_authorized()
+     * @return bool True if the Enterprise toolkit is authorized for this site.
      */
     public static function bfplus_is_authorized(): bool {
         if (static::bfplus_is_installed() != true) {
@@ -125,7 +125,7 @@ class versionshim {
     /**
      * Version-aware wrapper for \local_bfaltformat\authorizer::setting_enabled().
      *
-     * @return bool Return of \local_bfaltformat\authorizer::setting_enabled()
+     * @return bool True if the bfaltformat setting is enabled.
      */
     public static function bfaltformat_setting_enabled(): bool {
         if (static::bfaltformat_is_installed() != true) {
@@ -137,7 +137,7 @@ class versionshim {
     /**
      * Version-aware wrapper for \local_bfaltformat\sensusaccess::validated().
      *
-     * @return bool Return of \local_bfaltformat\sensusaccess::validated()
+     * @return bool True if the SensusAccess registration has been validated.
      */
     public static function bfaltformat_sensusaccess_validated(): bool {
         if (static::bfaltformat_is_installed() != true) {

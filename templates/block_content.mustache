@@ -47,19 +47,21 @@
     {{#sections}}
     <div class="mt-3 block_accessibility_overview_section">
         <div class="px-2 block_accessibility_overview_tab">
-            <h6>{{title}}</h6>
+            <h4>{{title}}</h4>
         </div>
+        <dl class="block_accessibility_overview_entries">
         {{#entries}}
-        <div class="block_accessibility_overview_entry">
-            <div class="p-1 {{#hasvalue}}block_accessibility_overview_border_right{{/hasvalue}}">{{{label}}}</div>
-            {{#hasvalue}}<div class="p-1">{{{value}}}</div>{{/hasvalue}}
-        </div>
+            <div class="block_accessibility_overview_entry">
+                <dt class="p-1 {{#hasvalue}}block_accessibility_overview_border_right{{/hasvalue}}">{{{label}}}</dt>
+                <dd class="p-1">{{#hasvalue}}{{{value}}}{{/hasvalue}}</dd>
+            </div>
         {{/entries}}
+        </dl>
     </div>
     {{/sections}}
     <div class="mt-4 block_accessibility_overview_socials">
         {{#socials}}
-        <a href="{{url}}" title="{{name}}" aria-label="{{name}}"><span class="{{icon}}"></span></a>
+        <a href="{{url}}" title="{{name}}" aria-label="{{name}}"><span class="{{icon}}" aria-hidden="true"></span></a>
         {{/socials}}
     </div>
 </section>
